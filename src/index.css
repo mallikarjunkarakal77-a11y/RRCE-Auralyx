@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+     :root {
+        --background: 220 20% 7%;
+        --foreground: 210 20% 92%;
+        --card: 220 18% 10%;
+        --card-foreground: 210 20% 92%;
+        --popover: 220 18% 10%;
+        --popover-foreground: 210 20% 92%;
+        --primary: 160 80% 55%;
+        --primary-foreground: 220 20% 7%;
+        --secondary: 220 16% 16%;
+        --secondary-foreground: 210 20% 80%;
+        --muted: 220 14% 14%;
+        --muted-foreground: 215 12% 50%;
+        --accent: 260 70% 65%;
+        --accent-foreground: 210 20% 95%;
+        --destructive: 0 72% 55%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 220 14% 18%;
+        --input: 220 14% 18%;
+        --ring: 160 80% 55%;
+        --radius: 0.75rem;
+        --step-1: 200 85% 55%;
+        --step-2: 30 90% 55%;
+        --step-3: 340 80% 60%;
+        --step-4: 160 80% 55%;
+        --step-5: 260 70% 65%;
+        --step-6: 45 90% 55%;
+        --step-7: 190 85% 50%;
+        --step-8: 120 60% 50%;
+        --glow-primary: 0 0 20px hsl(160 80% 55% / 0.3);
+        --glow-accent: 0 0 20px hsl(260 70% 65% / 0.3);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+        font-family: 'Inter', sans-serif;
+    }
+    .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+    }
+}
+
+@layer components {
+    .glass-card {
+        @apply bg-card/60 backdrop-blur-xl border border-border/50 rounded-xl;
+    }
+    .glow-primary {
+        box-shadow: var(--glow-primary);
+    }
+    .glow-accent {
+        box-shadow: var(--glow-accent);
+    }
+    .pipeline-line {
+        @apply w-0.5 bg-gradient-to-b from-border to-transparent mx-auto;
+        height: 2rem;
+    }
+    .heatmap-hot {
+        @apply bg-destructive/30 text-destructive rounded px-1;
+    }
+    .heatmap-warm {
+        @apply bg-accent/20 text-accent rounded px-1;
+    }
+    .heatmap-cool {
+        @apply bg-primary/15 text-primary rounded px-1;
+    }
+    .heatmap-neutral {
+        @apply text-muted-foreground;
+    }
+}
